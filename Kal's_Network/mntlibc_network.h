@@ -4,6 +4,6 @@
 
 #include"mntlibc_sockets.h"
 
-
+#include "mntlibc_servers.h"
 #endif // !_KALNET_
 

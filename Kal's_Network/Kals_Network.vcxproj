@@ -130,19 +130,24 @@
   <ItemGroup>
     <ClCompile Include="BindingSocket.cpp" />
     <ClCompile Include="ConnectingSocket.cpp" />
+    <ClCompile Include="Kal_Server.cpp" />
     <ClCompile Include="ListeningSocket.cpp" />
-    <ClCompile Include="Kals_Network.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="mntlibc_network.cpp" />
     <ClCompile Include="mntlibc_sockets.cpp" />
     <ClCompile Include="SimpleSocket.cpp" />
+    <ClCompile Include="Test_Server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BindingSocket.h" />
     <ClInclude Include="ConnectingSocket.h" />
+    <ClInclude Include="Kal_Server.h" />
     <ClInclude Include="ListeningSocket.h" />
     <ClInclude Include="mntlibc_network.h" />
+    <ClInclude Include="mntlibc_servers.h" />
     <ClInclude Include="mntlibc_sockets.h" />
     <ClInclude Include="SimpleSocket.h" />
+    <ClInclude Include="Test_Server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

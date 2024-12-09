@@ -25,9 +25,12 @@
     <Filter Include="mnt-sockets\Socket_Headers">
       <UniqueIdentifier>{95c1cf2e-3a81-43c9-9eb5-0872f4c56851}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Server">
+      <UniqueIdentifier>{efb577ed-a7ea-402c-b0cc-17b147d6d267}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Kals_Network.cpp">
+    <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BindingSocket.cpp">
@@ -48,6 +51,12 @@
     <ClCompile Include="mntlibc_network.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="Kal_Server.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Server.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BindingSocket.h">
@@ -67,6 +76,15 @@
     </ClInclude>
     <ClInclude Include="mntlibc_network.h">
       <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Kal_Server.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="mntlibc_servers.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_Server.h">
+      <Filter>Server</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
