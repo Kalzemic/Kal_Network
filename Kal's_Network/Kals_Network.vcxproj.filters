@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{d4dca893-6339-4c05-b625-dfc1784b99f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mnt-sockets">
+      <UniqueIdentifier>{d36253ff-7cda-479d-9ddd-c44ff8f77e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mnt-sockets\Socket_Sources">
+      <UniqueIdentifier>{de1c0f64-50be-4ec5-b335-9b243e87df24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mnt-sockets\Socket_Headers">
+      <UniqueIdentifier>{95c1cf2e-3a81-43c9-9eb5-0872f4c56851}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Kals_Network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BindingSocket.cpp">
+      <Filter>mnt-sockets\Socket_Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectingSocket.cpp">
+      <Filter>mnt-sockets\Socket_Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ListeningSocket.cpp">
+      <Filter>mnt-sockets\Socket_Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleSocket.cpp">
+      <Filter>mnt-sockets\Socket_Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mntlibc_sockets.cpp">
+      <Filter>mnt-sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="mntlibc_network.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BindingSocket.h">
+      <Filter>mnt-sockets\Socket_Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectingSocket.h">
+      <Filter>mnt-sockets\Socket_Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ListeningSocket.h">
+      <Filter>mnt-sockets\Socket_Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleSocket.h">
+      <Filter>mnt-sockets\Socket_Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="mntlibc_sockets.h">
+      <Filter>mnt-sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="mntlibc_network.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

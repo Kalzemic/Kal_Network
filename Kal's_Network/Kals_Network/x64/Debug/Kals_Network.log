@@ -1,0 +1,10 @@
+﻿  BindingSocket.cpp
+  ConnectingSocket.cpp
+  ListeningSocket.cpp
+  Kals_Network.cpp
+  mntlibc_network.cpp
+  mntlibc_sockets.cpp
+  SimpleSocket.cpp
+C:\Users\Miziz\source\repos\Kal's_Network\SimpleSocket.cpp(9,18): warning C4244: 'argument': conversion from 'SOCKET' to 'int', possible loss of data
+  Generating Code...
+  Kals_Network.vcxproj -> C:\Users\Miziz\source\repos\Kal's_Network\x64\Debug\Kals_Network.exe
