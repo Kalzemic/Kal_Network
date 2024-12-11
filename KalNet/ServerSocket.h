@@ -15,7 +15,7 @@ namespace KNT {
 	{
 	private:
 		SOCKET sock;
-		std::map<SOCKET, std::string*> clients;
+		std::map<SOCKET, std::string> clients;
 	public:
 		ServerSocket();
 		~ServerSocket();
