@@ -38,15 +38,22 @@ void KNT::ServerSocket::BindListen(std::string& ip, int port)
 	while (1)
 	{
 		SOCKET client = ::accept(this->sock, NULL, NULL);
-		char* buffer;
+		char* buffer=new char[BUFFER_SIZE];
 		int result = recv(client, buffer, BUFFER_SIZE, MSG_PEEK);
 		if (result == SOCKET_ERROR)
+		{
+			std::cerr << "SOCKET DATA ERROR";
+		}
+		else if (result == 0)
+		{
+			std::cerr << "SOCKET DATA ERROR";
+		}
+		else if (result == -1)
 		{
 			std::cerr << "SOCKET DATA ERROR";
 		}
 		std::string message(buffer);
 		this->clients.insert(std::pair<SOCKET, std::string>(client, message));
 		delete buffer;
-
 	}
 }
