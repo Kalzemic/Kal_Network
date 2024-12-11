@@ -1,0 +1,4 @@
+﻿  KalServer.cpp
+  ServerSocket.cpp
+  Generating Code...
+C:\Users\Miziz\source\repos\KalNet\ServerSocket.cpp(42,1): error C4700: uninitialized local variable 'buffer' used
