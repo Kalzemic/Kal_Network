@@ -1,4 +1,8 @@
-﻿  KalServer.cpp
+﻿  ClientSocket.cpp
+  KalServer.cpp
+  main.cpp
   ServerSocket.cpp
+  SocketHandler.cpp
+  WSAinitializer.cpp
   Generating Code...
-C:\Users\Miziz\source\repos\KalNet\ServerSocket.cpp(42,1): error C4700: uninitialized local variable 'buffer' used
+  KalNet.vcxproj -> C:\Users\Miziz\source\repos\KalNet\x64\Debug\KalNet.exe

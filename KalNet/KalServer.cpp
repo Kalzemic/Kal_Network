@@ -1,17 +1,20 @@
 #include "KalServer.h"
-namespace KNT 
+namespace KNT
 {
-	KNT::KalServer::KalServer(std::string& ip, int port): ip(ip), port(port)
+    KNT::KalServer::KalServer(std::string& ip, int port):
+		sock(std::move(new ServerSocket())), ip(move(ip)), port(port)
+    {
+        std::thread t1 = std::thread(&KNT::ServerSocket::BindListen, sock, std::ref(ip), port);
+        t1.detach();
+    }
+
+	KNT::KalServer::~KalServer()
 	{
-		sock =  KNT::ServerSocket();
-		std::thread t1 = std::thread(&KNT::ServerSocket::BindListen, &sock, std::ref(ip), port);
-		t1.detach();
+		try {
+			closesocket(GetSocket().GetSocket());
+			
+		}
+		catch (std::exception e) {}
 	}
-}
-KNT::KalServer::~KalServer()
-{
-}
-void ::KNT::KalServer::Respond(SOCKET client, std::string buffer, int buffersize)
-{
-	send(client, buffer.data(), buffersize, MSG_PEEK);
+	
 }
