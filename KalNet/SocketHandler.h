@@ -17,7 +17,10 @@ namespace KNT {
 			sock(other.sock), mtx(other.mtx) {
 		}
 		SocketHandler(SocketHandler&& other) noexcept :
-			sock(std::move(other.sock)), mtx(std::move(other.mtx)) {
+			sock(std::move(other.sock)), mtx(std::move(other.mtx)) 
+		{
+			other.sock = 0;
+			other.mtx = nullptr;
 		}
 		//Assignment operators
 		void operator=(SocketHandler& other)
@@ -27,7 +30,7 @@ namespace KNT {
 		}
 		void operator=(SocketHandler&& other) noexcept
 		{
-			sock = std::move(other.sock);
+			sock = std::	move(other.sock);
 			mtx = std::move(other.mtx);
 		}
 
