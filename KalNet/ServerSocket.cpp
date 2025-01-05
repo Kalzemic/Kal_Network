@@ -26,15 +26,7 @@ void KNT::ServerSocket::BindListen(std::string& ip, int port)
 		std::cerr << "Error listening on socket" << std::endl;
 		return;
 	}
-	while (1)
-	{
-		GetLock()->lock();
-		SOCKET client;
-		std::string buffer;
-		client	= ::accept(GetSocket(), NULL, NULL);
-		this->clients[client] = move(receive_message(client));
-		GetLock()->unlock();
 	
-	}
 }
+
 

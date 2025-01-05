@@ -11,7 +11,7 @@ private:
 	ServerSocket* sock;
 	std::string ip;
 	int port;
-	
+	std::map<SOCKET, std::string> clients;
 
 public:
 	//constructors
@@ -21,7 +21,8 @@ public:
 	~KalServer();
 	//gettersss
 	ServerSocket& GetSocket() { return *sock; }
-
+	void HandleAccepts();
+	std::map<SOCKET, std::string> GetClients() { return clients; }
 };
 }
 

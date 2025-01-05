@@ -10,16 +10,16 @@ namespace KNT {
 	{
 	private:
 		struct sockaddr_in* servaddr;
-		std::map<SOCKET, std::string> clients;
+		
 	public:
 		//Constructors
 		ServerSocket() : 
-		SocketHandler(), servaddr(new struct sockaddr_in()), clients() {}
+		SocketHandler(), servaddr(new struct sockaddr_in()){}
 		ServerSocket(ServerSocket& other) :
-			SocketHandler(other), servaddr(other.servaddr), clients(other.clients) {
+			SocketHandler(other), servaddr(other.servaddr) {
 		}
 		ServerSocket(ServerSocket&& other) noexcept :
-			SocketHandler(std::move(other)), servaddr(std::move(other.servaddr)), clients(std::move(other.clients)) {
+			SocketHandler(std::move(other)), servaddr(std::move(other.servaddr)) {
 		}
 		
 		//Assignment operators
@@ -27,13 +27,13 @@ namespace KNT {
 		{
 			SocketHandler::operator=(other);
 			servaddr = other.servaddr;
-			clients = other.clients;
+			
 		}
 		void operator=(ServerSocket&& other) noexcept
 		{
 			SocketHandler::operator=(std::move(other));
 			servaddr = std::move(other.servaddr);
-			clients = std::move(other.clients);
+			
 		}
 
 
@@ -41,7 +41,6 @@ namespace KNT {
 		~ServerSocket();
 		void BindListen(std::string& ip, int port);
 		//getters
-		std::map<SOCKET, std::string> GetClients() { return clients; }
 		struct sockaddr_in* GetAddr() { return servaddr; }
 		
 	};
