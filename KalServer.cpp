@@ -20,7 +20,7 @@ namespace KNT
 
 		void KNT::KalServer::HandleAccepts()
 		{
-			if (SOCKET client = ::accept(GetSocket().GetSocket(), NULL, NULL))
+			while(SOCKET client = ::accept(GetSocket().GetSocket(), NULL, NULL))
 			{
 				GetSocket().GetLock()->lock();
 				std::string buffer;
