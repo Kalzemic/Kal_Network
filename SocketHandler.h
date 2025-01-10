@@ -8,30 +8,29 @@ namespace KNT {
 	{
 	private:
 		SOCKET sock;
-		std::mutex* mtx;
+		std::mutex mtx;
 
 	public:
 		// Constructors
 		SocketHandler();
 		SocketHandler(SocketHandler& other):
-			sock(other.sock), mtx(other.mtx) {
+			sock(other.sock),mtx() {
 		}
 		SocketHandler(SocketHandler&& other) noexcept :
-			sock(std::move(other.sock)), mtx(std::move(other.mtx)) 
+			sock(std::move(other.sock)), mtx()
 		{
 			other.sock = 0;
-			other.mtx = nullptr;
 		}
 		//Assignment operators
 		void operator=(SocketHandler& other)
 		{
 			sock = other.sock;
-			mtx = other.mtx;
+			
 		}
 		void operator=(SocketHandler&& other) noexcept
 		{
 			sock = std::	move(other.sock);
-			mtx = std::move(other.mtx);
+			
 		}
 
 
@@ -40,7 +39,7 @@ namespace KNT {
 
 		//getters
 		SOCKET	GetSocket() { return sock; }
-		std::mutex* GetLock() { return mtx; }
+		std::mutex& getlock() { return mtx; }
 
 		//send messages to other sockets
 		void send_message(SOCKET other, std::string message);

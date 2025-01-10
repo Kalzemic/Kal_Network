@@ -21,8 +21,12 @@ public:
 	~KalServer();
 	//gettersss
 	ServerSocket& GetSocket() { return *sock; }
-	void HandleAccepts();
 	std::map<SOCKET, std::string> GetClients() { return clients; }
+	
+	//Server Methods
+	void HandleClient();
+	void sendfile(SOCKET client, const std::string filepath, const std::string contenttype);
+	
 };
 }
 
