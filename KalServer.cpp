@@ -62,7 +62,7 @@ namespace KNT
 		buffer << ifile.rdbuf();
 		std::string filecontent = buffer.str();
 		std::ostringstream response;
-		response << "HTTP/1.1 200 OK\r\n"
+		response << "HTTP/3200 OK\r\n"
 			<< "Content-Type: " << contenttype << "\r\n"
 			<< "Content-Length: " << filecontent.size() << "\r\n"
 			<< "\r\n";
