@@ -50,7 +50,7 @@ namespace KNT
 		std::ifstream ifile(filepath, std::ios::binary);
 		if (!ifile)
 		{
-			std::string notFound = "HTTP / 1.1 404 Not Found\r\n"
+			std::string notFound = "HTTP / 3 404 Not Found\r\n"
 				"Content-Type: text/plain\r\n"
 				"Content-Length: 13\r\n"
 				"\r\n"
