@@ -26,20 +26,18 @@ namespace KNT
 		{
 			GetSocket().getlock().lock();
 			std::string req = GetSocket().receive_message(client);
-			if (req != "@")
+			std::cout << req << std::endl;
+			std::vector<std::string> reqvec = split(req, ' ');
+			if (reqvec[0] == "GET")
 			{
-				std::vector<std::string> reqvec = split(req, ' ');
-				if (reqvec[0] == "Get")
-				{
-					if (reqvec[1] == "/")
-						sendfile(client, "page.html","");
-					if (reqvec[1] == "/script.js")
-						sendfile(client, "script.js","");
-					if (reqvec[1] == "/test.xml")
-						sendfile(client, "test.xml","");
-				}
-				std::cout << req << std::endl;
+				if (reqvec[26].find("text/html")!=std::string::npos)
+					sendfile(client, "page.html", "text/html");
+				if (reqvec[1] == "/script.js")
+					sendfile(client, "script.js", "");
+				if (reqvec[1] == "/test.xml")
+					sendfile(client, "test.xml", "");
 			}
+			
 			GetSocket().getlock().unlock();
 
 		}
@@ -50,7 +48,7 @@ namespace KNT
 		std::ifstream ifile(filepath, std::ios::binary);
 		if (!ifile)
 		{
-			std::string notFound = "HTTP / 3 404 Not Found\r\n"
+			std::string notFound = "HTTP / 1.1 404 Not Found\r\n"
 				"Content-Type: text/plain\r\n"
 				"Content-Length: 13\r\n"
 				"\r\n"
@@ -62,8 +60,8 @@ namespace KNT
 		buffer << ifile.rdbuf();
 		std::string filecontent = buffer.str();
 		std::ostringstream response;
-		response << "HTTP/3200 OK\r\n"
-			<< "Content-Type: " << contenttype << "\r\n"
+		response << "HTTP/ 1.1 200 OK\r\n"
+			<< "Content-Type: " << contenttype << "; charset = UTF - 8\r\n"
 			<< "Content-Length: " << filecontent.size() << "\r\n"
 			<< "\r\n";
 		std::string header = response.str();
