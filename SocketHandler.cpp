@@ -20,9 +20,7 @@ KNT::SocketHandler::~SocketHandler()
 }
 void KNT::SocketHandler::send_message(SOCKET other, std::string message)
 {
-	getlock().lock();
 	int res = ::send(other, message.data(), sizeof(message), MSG_PEEK);
-	getlock().unlock();
 
 }
 std::string KNT::SocketHandler::receive_message(SOCKET other)
