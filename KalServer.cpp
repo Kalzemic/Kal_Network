@@ -4,12 +4,13 @@
 namespace KNT
 {
 	 
-	KNT::KalServer::KalServer(std::string& ip, int port) :
+	KNT::KalServer::KalServer(const std::string& ip, int port) :
 		sock(std::move(new ServerSocket())), ip(move(ip)), port(port)
 	{
 		GetSocket().BindListen(ip, port);
 		//std::thread t1 = std::thread(&KalServer::HandleAccepts, this);
 		//t1.detach();
+		
 	}
 	KNT::KalServer::~KalServer()
 	{
@@ -20,10 +21,9 @@ namespace KNT
 		catch (std::exception e) {}
 	}
 
-	void KNT::KalServer::HandleClient()
+	void KNT::KalServer::HandleClient(SOCKET client)
 	{
-		if (SOCKET client = ::accept(GetSocket().GetSocket(), NULL, NULL))
-		{
+		
 			GetSocket().getlock().lock();
 			std::string req = GetSocket().receive_message(client);
 			std::cout << req << std::endl;
@@ -36,7 +36,7 @@ namespace KNT
 			
 			GetSocket().getlock().unlock();
 
-		}
+		
 	}
 
 	void KalServer::sendfile(SOCKET client, const std::string filepath, const std::string contenttype)
@@ -58,11 +58,12 @@ namespace KNT
 		std::ostringstream response;
 		response << "HTTP/1.1 200 OK\r\n" <<
 			"Content-Type: " << contenttype << "; charset=UTF-8\r\n" <<
-			"Content-Length: " << filecontent.size() << "\r\n" <<
-			"\r\n";
+			"Content-Length: " << filecontent.size() << 
+			"Connection: close\r\n\r\n";
 		std::string header = response.str();
-		header += filecontent;
+		header.append(filecontent);
 		GetSocket().send_message(client, header);
+		
 	}
 	
 }

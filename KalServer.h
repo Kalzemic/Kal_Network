@@ -15,7 +15,7 @@ private:
 
 public:
 	//constructors
-	KalServer(std::string& ip, int port );
+	KalServer(const std::string& ip, int port );
 
 	//desturctor
 	~KalServer();
@@ -24,7 +24,7 @@ public:
 	std::map<SOCKET, std::string> GetClients() { return clients; }
 	
 	//Server Methods
-	void HandleClient();
+	void HandleClient(SOCKET client);
 	void sendfile(SOCKET client, const std::string filepath, const std::string contenttype);
 	
 };

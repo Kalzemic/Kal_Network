@@ -5,7 +5,7 @@ KNT::ServerSocket::~ServerSocket()
 	KNT::SocketHandler::~SocketHandler();
 	delete servaddr;
 }
-void KNT::ServerSocket::BindListen(std::string& ip, int port)
+void KNT::ServerSocket::BindListen(const std::string& ip, int port)
 {
 	
 	servaddr->sin_port = ::htons(port); // port that server will listen for
@@ -19,13 +19,12 @@ void KNT::ServerSocket::BindListen(std::string& ip, int port)
 		std::cerr << "Error binding socket" << errorcode << std::endl;
 		return;
 	}
-
-	//now we start listerning
 	if (listen(GetSocket(), SOMAXCONN) == SOCKET_ERROR)
 	{
 		std::cerr << "Error listening on socket" << std::endl;
 		return;
 	}
+	
 	
 }
 

@@ -2,7 +2,7 @@
 #ifndef _SOCKET_
 #define _SOCKETS_
 #include "Includes.h"
-#define BUFFER_SIZE 30000
+#define BUFFER_SIZE 3000
 namespace KNT {
 	class SocketHandler
 	{

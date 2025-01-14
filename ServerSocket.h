@@ -4,7 +4,7 @@
 #include "Includes.h"
 #include "SocketHandler.h"
 
-#define BUFFER_SIZE 30000
+#define BUFFER_SIZE 3000
 namespace KNT {
 	class ServerSocket: public SocketHandler
 	{
@@ -39,7 +39,7 @@ namespace KNT {
 
 		//Destructor
 		~ServerSocket();
-		void BindListen(std::string& ip, int port);
+		void BindListen(const std::string& ip, int port);
 		//getters
 		struct sockaddr_in* GetAddr() { return servaddr; }
 		
