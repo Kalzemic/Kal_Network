@@ -8,7 +8,7 @@ namespace KNT
 class KalServer
 {
 private:
-	ServerSocket* sock;
+	std::unique_ptr<ServerSocket> sock;
 	std::string ip;
 	int port;
 	std::map<SOCKET, std::string> clients;

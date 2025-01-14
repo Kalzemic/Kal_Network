@@ -20,7 +20,9 @@ KNT::SocketHandler::~SocketHandler()
 }
 void KNT::SocketHandler::send_message(SOCKET other, std::string message)
 {
+	
 	int res = ::send(other, message.data(), sizeof(message), MSG_PEEK);
+	
 
 }
 std::string KNT::SocketHandler::receive_message(SOCKET other)
@@ -33,6 +35,6 @@ std::string KNT::SocketHandler::receive_message(SOCKET other)
 		return "@";
 	}
 
-	std::string response(buffer);
-	return response;
+	std::string message(buffer);
+	return message;
 }

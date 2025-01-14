@@ -3,7 +3,7 @@
 #include <fstream>
 namespace KNT
 {
-    
+	 
 	KNT::KalServer::KalServer(std::string& ip, int port) :
 		sock(std::move(new ServerSocket())), ip(move(ip)), port(port)
 	{
@@ -30,8 +30,8 @@ namespace KNT
 			std::vector<std::string> reqvec = split(req, ' ');
 			if (reqvec[0] == "GET")
 			{
-				if (reqvec[26].find("text/html")!=std::string::npos)
-					sendfile(client, "index.html", "text/html");
+				if (reqvec[1]=="/")
+					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/index.html", "text/html");
 			}
 			
 			GetSocket().getlock().unlock();
@@ -56,10 +56,10 @@ namespace KNT
 		buffer << ifile.rdbuf();
 		std::string filecontent = buffer.str();
 		std::ostringstream response;
-		response << "HTTP/ 1.1 200 OK\r\n"
-			<< "Content-Type: " << contenttype << "; charset = UTF - 8\r\n"
-			<< "Content-Length: " << filecontent.size() << "\r\n"
-			<< "\r\n";
+		response << "HTTP/1.1 200 OK\r\n" <<
+			"Content-Type: " << contenttype << "; charset=UTF-8\r\n" <<
+			"Content-Length: " << filecontent.size() << "\r\n" <<
+			"\r\n";
 		std::string header = response.str();
 		header += filecontent;
 		GetSocket().send_message(client, header);
