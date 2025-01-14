@@ -31,11 +31,7 @@ namespace KNT
 			if (reqvec[0] == "GET")
 			{
 				if (reqvec[26].find("text/html")!=std::string::npos)
-					sendfile(client, "page.html", "text/html");
-				if (reqvec[1] == "/script.js")
-					sendfile(client, "script.js", "");
-				if (reqvec[1] == "/test.xml")
-					sendfile(client, "test.xml", "");
+					sendfile(client, "index.html", "text/html");
 			}
 			
 			GetSocket().getlock().unlock();
