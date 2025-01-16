@@ -27,14 +27,14 @@ namespace KNT
 			GetSocket().getlock().lock();
 			std::string req = GetSocket().receive_message(client);
 			std::cout << req << std::endl;
-			std::vector<std::string> reqvec = split(req, ' ');
+			std::vector<std::string> ClientMessage = split(req, ' ');
 			if (reqvec[0] == "GET")
 			{
-				if (reqvec[1]=="/")
+				if (ClientMessage[1]=="/")
 					sendfile(client, "KalNet/index.html", "text/html");
-				if (reqvec[1] == "/script.js")
+				if (ClientMessage[1] == "/script.js")
 					sendfile(client, "KalNet/script.js", "application/javascript");
-				if (reqvec[1] == "/script.js")
+				if (ClientMessage[1] == "/script.js")
 					sendfile(client, "KalNet/style.css", "text/css");
 			}
 			
