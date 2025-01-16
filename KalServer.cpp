@@ -31,11 +31,11 @@ namespace KNT
 			if (reqvec[0] == "GET")
 			{
 				if (reqvec[1]=="/")
-					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/index.html", "text/html");
+					sendfile(client, "KalNet/index.html", "text/html");
 				if (reqvec[1] == "/script.js")
-					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/script.js", "application/javascript");
+					sendfile(client, "KalNet/script.js", "application/javascript");
 				if (reqvec[1] == "/script.js")
-					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/style.css", "text/css");
+					sendfile(client, "KalNet/style.css", "text/css");
 			}
 			
 			GetSocket().getlock().unlock();
