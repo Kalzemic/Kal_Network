@@ -32,6 +32,10 @@ namespace KNT
 			{
 				if (reqvec[1]=="/")
 					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/index.html", "text/html");
+				if (reqvec[1] == "/script.js")
+					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/script.js", "application/javascript");
+				if (reqvec[1] == "/script.js")
+					sendfile(client, "C:/Users/Miziz/source/repos/KalNet/style.css", "text/css");
 			}
 			
 			GetSocket().getlock().unlock();
@@ -56,10 +60,10 @@ namespace KNT
 		buffer << ifile.rdbuf();
 		std::string filecontent = buffer.str();
 		std::ostringstream response;
-		response << "HTTP/1.1 200 OK\r\n" <<
-			"Content-Type: " << contenttype << "; charset=UTF-8\r\n" <<
+		response << "HTTPS/1.1 200 OK\r\n" <<
+			"Content-Type: \r\n" <<
 			"Content-Length: " << filecontent.size() << 
-			"Connection: close\r\n\r\n";
+			"Connection: keep-alive\r\n\r\n";
 		std::string header = response.str();
 		header.append(filecontent);
 		GetSocket().send_message(client, header);

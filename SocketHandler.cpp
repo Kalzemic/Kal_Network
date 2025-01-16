@@ -21,7 +21,7 @@ KNT::SocketHandler::~SocketHandler()
 void KNT::SocketHandler::send_message(SOCKET other, std::string message)
 {
 	
-	int res = ::send(other, message.data(), BUFFER_SIZE, MSG_PEEK);
+	int res = send(other, message.data(), message.size(),0);
 	if (res == SOCKET_ERROR)
 	{
 		std::cerr << "ERROR SENDING TO SOCKET " << WSAGetLastError() << "\n";
